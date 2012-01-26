@@ -1,10 +1,10 @@
 development:
   host: localhost
-  database: ruby_archi_development
+  database: test
 
 test:
   host: localhost
-  database: ruby_archi_test
+  database: test_test
 
 # set these environment variables on your prod server
 production:

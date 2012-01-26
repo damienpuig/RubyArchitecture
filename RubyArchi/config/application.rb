@@ -8,6 +8,7 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
@@ -21,6 +22,9 @@ module RubyArchi
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.generators do |g|
+     g.template_engine :haml
+    end
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
@@ -48,6 +52,7 @@ module RubyArchi
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    Haml::Template.options[:format] = :html5
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
